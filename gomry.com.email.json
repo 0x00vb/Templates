@@ -1,0 +1,34 @@
+{
+  "providerId": "gomry.com",
+  "providerName": "Gomry",
+  "serviceId": "email",
+  "serviceName": "Gomry Mail",
+  "version": 1,
+  "logoUrl": "https://www.gomry.com/logo.svg",
+  "description": "Lets Gomry send your event emails from your own domain: three CNAME records that sign the mail as yours.",
+  "variableDescription": "dkim1, dkim2, dkim3: the signing keys' names, each added as <name>._domainkey; target1, target2, target3: what each signing name points at",
+  "syncBlock": false,
+  "syncPubKeyDomain": "domainconnect.gomry.com",
+  "syncRedirectDomain": "gomry.com,www.gomry.com",
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "CNAME",
+      "host": "%dkim1%._domainkey",
+      "pointsTo": "%target1%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim2%._domainkey",
+      "pointsTo": "%target2%",
+      "ttl": 3600
+    },
+    {
+      "type": "CNAME",
+      "host": "%dkim3%._domainkey",
+      "pointsTo": "%target3%",
+      "ttl": 3600
+    }
+  ]
+}
